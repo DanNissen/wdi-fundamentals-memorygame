@@ -3,18 +3,23 @@
 //creating array cards to store face values of the cards
 var cards = ["Queen", "Queen", "King", "King"];
 var cardsInPlay = [];
-//variables for cards flipped
-var cardOne = cards[0];
-cardsInPlay.push(cardOne);
-console.log("User flipped " + cardsInPlay);
-var cardTwo = cards[2];
-cardsInPlay.push(cardTwo);
-console.log("User flipped " + cardsInPlay);
-//game logic to see if two cards have been played
-if (cardsInPlay.length === 2) {
+//function to check for a match 
+var checkForMatch = function(){
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You found a match!");
+	alert("You found a match!");
 	} else {
-		alert("Sorry, but try again");
-	}
+	alert("Sorry, try again.");
 }
+}
+
+//function to store logic of when user flips card
+var flipCard = function(cardId){
+	console.log("User Fliped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]); 
+	if (cardsInPlay.length === 2) {
+		checkForMatch();}	
+	}
+
+flipCard(0);
+flipCard(2);
+
